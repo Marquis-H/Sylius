@@ -12,6 +12,7 @@ sylius:
                     inventory: 库存
                     options: 选项
                     taxons: 分类
+                    products: 产品
                 configuration:
                     channels: 频道
                     countries: 国家
@@ -23,6 +24,9 @@ sylius:
                     tax_categories: 税类别
                     tax_rates: 税率
                     zones: 区域
+                    exchange_rates: 汇率
+                    shipping_categories: 快递类别
+                    admin_users: 管理员用户
                 marketing:
                     header: 市场营销
                     product_reviews: 商品评论

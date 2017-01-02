@@ -7,3 +7,7 @@ sylius:
             account:
                 change_password: 更改密码
                 dashboard: 仪表板
+                header: 顶部
+                personal_information: 个人信息
+                address_book: 地址簿
+                order_history: 历史订单

@@ -21,8 +21,10 @@ sylius:
         shipping_calculator:
             flat_rate_configuration:
                 label: 统一费用/每次配送
+                amount: 数量
             per_unit_rate_configuration:
                 label: 每个单位的费用
+                amount: 数量
         shipping_category:
             description: 描述
             name: 名称

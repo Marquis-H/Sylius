@@ -9,6 +9,46 @@ sylius:
             remember_me: 记住我
         option:
             name: 名称
+        notes: 备注
+        customer:
+            subscribed_to_newsletter: 订阅邮件列表
+            birthday: 出生日期
+            gender: 性别
+            group: 团体
+        taxon:
+            slug: 分类标签
+        product:
+            slug: 产品标签
+            taxons: 产品分类
+        product_attribute:
+            position: 排序
+        option:
+            position: 排序
+        promotion:
+            usage_limit: 使用限制
+        promotion_rule:
+            customer_group:
+                group: 团队
+            has_taxon:
+                taxons: 分类
+            total_of_items_from_taxon:
+                amount: 数量
+        promotion_filter:
+            taxons: 分类
+            products: 产品
+        promotion_action:
+            percentage_discount_configuration:
+                percentage: 百分比
+        channel:
+            contact_email: 联系邮箱
+            tax_calculation_strategy: 税的计算策略
+        zone:
+            scopes:
+                shipping: 运送
+        exchange_rate:
+            source_currency: 源货币
+            target_currency: 目标货币
+            ratio: 比率
     ui:
         abandoned: 已放弃
         about: 关于
@@ -436,7 +476,7 @@ sylius:
         oauth_provider: OAuth 提供器
         on_hold: 搁置
         options: 选项
-        or: 或者
+        or: 或
         order: 订单
         order_comment_name: 订单的评论
         order_comments: 订单的评论
@@ -693,3 +733,115 @@ sylius:
         zone_consisting_of_provinces: 区域由省构成
         zone_details: 区域详细信息
         zones: 区域
+        item.choice: "{0} |{1}, 1 项目|]1,Inf], %count% items"
+        latest_products: 最新产品
+        no_label: 否
+        yes_label: 是
+        clear: 清除
+        by_position: 通过位置
+        display: 显示
+        from_a_to_z: a-z
+        from_z_to_a: z-a
+        newest_first: 新的优先
+        oldest_first: 旧的优先
+        cheapest_first: 便宜的优先
+        most_expensive_first: 贵的优先
+        add_your_review: 添加您的评论
+        there_are_no_reviews: 未有评论
+        your_shopping_cart: 您的购物车
+        view_and_edit_cart: 查看和编辑购物车
+        edit_your_items_apply_coupon_or_proceed_to_the_checkout: 编辑您的项目/申请优惠券或进行结帐
+        enter_your_code: 输入您的优惠码
+        enter_your_code...: 输入您的优惠码...
+        apply_coupon: 申请优惠券
+        update_cart: 更新购物车
+        shipping: 运送
+        order_total: 订单总额
+        you_may_also_like: 猜你喜欢
+        address: 地址
+        fill_in_your_billing_and_shipping_addresses: 填写您的帐单和送货地址
+        choose_how_your_goods_will_be_delivered: 选择你的货物将如何交付
+        choose_how_you_will_pay: 选择你将如何支付
+        review_and_confirm_your_order: 检查和确认你的订单
+        back_to_store: 回到商店
+        need_assistance: 需要帮助
+        call_us: 打电话给我们
+        checking_out_as: 检查了
+        shipment: 装运
+        change_address: 更改地址
+        change_shipping_method: 改变运输方式
+        summary_of_your_order: 您的订单摘要
+        thank_you: 谢谢
+        placed_an_order: 订购
+        view_your_order_or_change_payment_method: 查看您的订单或更改付款方法
+        customer_login: 客户登录
+        access_your_store_account_or_create_a_new_one: 访问您的帐户或创建一个新的
+        registered_customers: 注册客户
+        if_you_have_an_account_sign_in_with_your_email_address: 如果您有一个电子邮件地址用于帐户登录
+        forgot_password: 忘记密码
+        create_an_account: 创建账户
+        register_in_the_store: 在商店登记
+        create_a_new_customer_account: 创建一个新的客户帐户
+        have_an_account_already: 已经有一个帐户
+        sign_in_here: 在这里注册
+        personal_information: 个人信息
+        hello: 你好
+        manage_your_personal_information_and_preferences: 管理您的个人信息和偏好
+        not_verified: 未验证
+        verify: 验证
+        your_profile: 您的信息
+        set_a_new_password_for_your_account: 设置一个新密码
+        address_book: 地址簿
+        manage_your_saved_addresses: 管理已保存的地址
+        add_address: 添加地址
+        order_history: 历史订单
+        browse_your_orders_from_the_past: 浏览你过去的订单
+        view_your_store: 查看你的商店
+        search_products: 搜索产品
+        products: 产品
+        edit_admin_user: 编辑管理员账户
+        manage_users_able_to_access_administration_panel: 管理能够访问管理面板的用户
+        admin_users: 管理员用户
+        preferences: 偏好
+        locale: 语言
+        taxons: 分类
+        save_positions: 保存位置
+        browse_all_products: 浏览所有产品
+        manage_taxons: 管理的分类
+        filter: 过滤
+        select_products: 选择产品
+        change_file: 更改文件
+        manage_inventory: 管理库存
+        position: 位置
+        manage_association_types_of_your_products: 管理您的产品的关联类型
+        edit_product_association_type: 编辑产品关联类型
+        greater_than: 大于
+        less_than: 小于
+        awaiting_payment: 等待付款
+        discounted_unit_price: 折扣价格
+        tracking_code: 跟踪代码
+        verified: 已验证
+        show_orders: 显示订单
+        subscribed_to_newsletter: 订阅邮件列表
+        email_verified: 邮件已验证
+        impersonate: 模仿
+        orders_statistics: 订单统计
+        this_customer_has_not_placed_any_orders_yet: 这个客户还没有订单呢
+        customer_groups: 团体
+        manage_customer_groups: 管理团体
+        manage_reviews_of_your_products: 管理您的产品评论
+        accept: 接受
+        reject: 拒绝
+        accepted: 已接受
+        edit_product_review: 编辑产品评论
+        default: 默认
+        exchange_rates: 汇率
+        manage_exchange_rates: 管理汇率
+        new_exchange_rate: 新汇率
+        offline: 离线
+        the_instructions_below_will_be_displayed_to_the_customer: 下面的说明将显示给客户
+        shipping_categories: 快递类别
+        manage_shipping_categories_for_your_store: 管理店铺的快递类别
+        tax_categories: 税种
+        amount: 数量
+        criteria: 标准

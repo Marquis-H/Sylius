@@ -15,3 +15,5 @@ sylius:
             roles: 角色
     gender:
         unknown: 未知
+        male: 男
+        female: 女

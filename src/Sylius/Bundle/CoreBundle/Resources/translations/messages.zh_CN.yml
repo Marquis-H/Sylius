@@ -178,3 +178,6 @@ sylius:
                 header: 过时的时区
                 help: '时区%timezone%已被否决。修复您的 php.ini 文件 （不推荐使用的时区 http://php.net/manual/en/timezones.others.php 的列表）。'
             version: PHP 版本
+    payum_gateway:
+        cash_on_delivery: 货到付款
+        offline: 离线

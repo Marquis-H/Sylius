@@ -1,0 +1,3 @@
+sylius:
+    customer:
+        impersonate: 模仿
