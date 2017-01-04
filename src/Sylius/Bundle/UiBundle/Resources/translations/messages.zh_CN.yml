@@ -845,3 +845,5 @@ sylius:
         tax_categories: 税种
         amount: 数量
         criteria: 标准
+        write_your_own_review: 写下您的评论
+        you_are_reviewing: 你在评论
