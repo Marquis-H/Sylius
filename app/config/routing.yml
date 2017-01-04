@@ -1,3 +1,7 @@
+member:
+    resource: "@MemberBundle/Resources/config/routing.yml"
+    prefix:   /
+
 # This file is part of the Sylius package.
 # (c) Paweł Jędrzejewski
 
