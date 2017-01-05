@@ -1,0 +1,8 @@
+Sylius\Bundle\MemberBundle\Entity\MemberExtend:
+    properties:
+        money:
+            - NotBlank:
+                groups: [member]
+        MemberCategory:
+            - NotBlank:
+                groups: [member]

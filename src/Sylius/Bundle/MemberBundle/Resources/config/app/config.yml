@@ -7,3 +7,11 @@ sylius_resource:
             classes:
                 model: Sylius\Bundle\MemberBundle\Entity\MemberCategory
                 form: Sylius\Bundle\MemberBundle\Form\Type\MemberCategoryType
+        sylius.member_extend:
+            classes:
+                model: Sylius\Bundle\MemberBundle\Entity\MemberExtend
+                form: Sylius\Bundle\MemberBundle\Form\Type\MemberExtendType
+        sylius.member_record:
+            classes:
+                model: Sylius\Bundle\MemberBundle\Entity\MemberRecord
+                form: Sylius\Bundle\MemberBundle\Form\Type\MemberRecordType

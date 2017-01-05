@@ -1,6 +1,25 @@
 services:
     sylius.form.type.member_categroy:
         class: Sylius\Bundle\MemberBundle\Form\Type\MemberCategoryType
-        arguments: [ %sylius.model.member_category.class%, ['sylius']]
+        arguments: [ %sylius.model.member_category.class%, ['member']]
         tags:
             - { name: form.type }
+
+    sylius.form.type.member_extend:
+        class: Sylius\Bundle\MemberBundle\Form\Type\MemberExtendType
+        arguments: [ %sylius.model.member_extend.class%, ['member']]
+        tags:
+            - { name: form.type }
+
+    sylius.form.type.member_record:
+        class: Sylius\Bundle\MemberBundle\Form\Type\MemberRecordType
+        arguments: [ %sylius.model.member_record.class%, ['member']]
+        tags:
+            - { name: form.type }
+
+    sylius.event.subscriber.member:
+        class: Sylius\Bundle\MemberBundle\Event\MemberEventListener
+        calls:
+            - [ setContainer, ['@service_container'] ]
+        tags:
+            - { name: doctrine.event_subscriber }

@@ -1,3 +1,11 @@
 sylius_member_member_category:
     resource: "@SyliusMemberBundle/Resources/config/routing/member_category.yml"
     prefix:   /member_category
+
+sylius_member_member_extend:
+    resource: "@SyliusMemberBundle/Resources/config/routing/member_extend.yml"
+    prefix:   /member_extend
+
+sylius_member_member_record:
+    resource: "@SyliusMemberBundle/Resources/config/routing/member_record.yml"
+    prefix:   /member_record

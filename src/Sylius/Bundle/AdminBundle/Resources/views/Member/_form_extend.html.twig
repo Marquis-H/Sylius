@@ -1,0 +1,12 @@
+{{ form_errors(form) }}
+<div class="one field">
+    {{ form_row(form.isEnable) }}
+    {{ form_row(form.money) }}
+    {{ form_row(form.MemberCategory) }}
+    {% if form.Customer is defined %}
+        {{ form_row(form.Customer) }}
+    {% else %}
+        {{ form_row(form.multipleCustomer) }}
+    {% endif %}
+    {{ form_row(form.remark) }}
+</div>

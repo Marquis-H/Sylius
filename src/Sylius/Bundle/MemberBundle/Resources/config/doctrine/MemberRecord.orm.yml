@@ -1,0 +1,39 @@
+Sylius\Bundle\MemberBundle\Entity\MemberRecord:
+    type: entity
+    table: sylius_member_record
+    repositoryClass: Sylius\Bundle\MemberBundle\Repository\MemberRecordRepository
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        type:
+            type: string
+            options:
+                comment: 类型(充值、消费)
+        money:
+            type: string
+            options:
+                comment: 金额
+        remark:
+            type: text
+            nullable: true
+        createdAt:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updatedAt:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
+    manyToOne:
+        MemberExtend:
+            targetEntity: Sylius\Bundle\MemberBundle\Entity\MemberExtend
+            inversedBy: MemberRecord
+            joinColumn:
+                name: MemberExtendId
+                referencedColumnName: id
+                onDelete: SET NULL

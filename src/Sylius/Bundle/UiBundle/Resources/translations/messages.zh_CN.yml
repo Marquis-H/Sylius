@@ -54,6 +54,11 @@ sylius:
             enabled: 已启用
             category: 类别
             remark: 备注
+            member_category: 会员卡
+            costomer: 顾客
+            money: 余额
+            type: 类型
+            member_extened: 有效会员卡
     ui:
         abandoned: 已放弃
         about: 关于
@@ -856,3 +861,12 @@ sylius:
         manage_member_category: 会员卡管理
         new_member_category: 创建会员卡
         edit_member_category: 编辑会员卡
+        member_extends: 发放会员卡
+        manage_member_extend: 发放会员卡管理
+        new_member_extend: 发放新卡
+        member_money: 余额
+        member_records: 会员卡使用记录
+        manage_member_record: 会员卡使用记录管理
+        new_member_record: 新增会员卡使用记录
+        consume: 消费
+        recharge: 充值

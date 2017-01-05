@@ -6,12 +6,12 @@ use Doctrine\ORM\Mapping as ORM;
 use Sylius\Component\Resource\Model\ResourceInterface;
 
 /**
- * MemberCategory
+ * MemberRecord
  *
- * @ORM\Table(name="member_category")
- * @ORM\Entity(repositoryClass="Sylius\Bundle\MemberBundle\Repository\MemberCategoryRepository")
+ * @ORM\Table(name="member_record")
+ * @ORM\Entity(repositoryClass="Sylius\Bundle\MemberBundle\Repository\MemberRecordRepository")
  */
-class MemberCategory implements ResourceInterface
+class MemberRecord implements ResourceInterface
 {
     /**
      * @var int
@@ -32,21 +32,15 @@ class MemberCategory implements ResourceInterface
     {
         return $this->id;
     }
+    /**
+     * @var string
+     */
+    private $type;
 
     /**
      * @var string
      */
-    private $name;
-
-    /**
-     * @var boolean
-     */
-    private $isEnable;
-
-    /**
-     * @var string
-     */
-    private $category;
+    private $money;
 
     /**
      * @var string
@@ -64,83 +58,56 @@ class MemberCategory implements ResourceInterface
     private $updatedAt;
 
     /**
-     * @return string
+     * @var \Sylius\Bundle\MemberBundle\Entity\MemberExtend
      */
-    function __toString()
-    {
-        return (string)$this->name;
-    }
+    private $MemberExtend;
 
     /**
-     * Set name
+     * Set type
      *
-     * @param string $name
+     * @param string $type
      *
-     * @return MemberCategory
+     * @return MemberRecord
      */
-    public function setName($name)
+    public function setType($type)
     {
-        $this->name = $name;
+        $this->type = $type;
 
         return $this;
     }
 
     /**
-     * Get name
+     * Get type
      *
      * @return string
      */
-    public function getName()
+    public function getType()
     {
-        return $this->name;
+        return $this->type;
     }
 
     /**
-     * Set isEnable
+     * Set money
      *
-     * @param boolean $isEnable
+     * @param string $money
      *
-     * @return MemberCategory
+     * @return MemberRecord
      */
-    public function setIsEnable($isEnable)
+    public function setMoney($money)
     {
-        $this->isEnable = $isEnable;
+        $this->money = $money;
 
         return $this;
     }
 
     /**
-     * Get isEnable
-     *
-     * @return boolean
-     */
-    public function getIsEnable()
-    {
-        return $this->isEnable;
-    }
-
-    /**
-     * Set category
-     *
-     * @param string $category
-     *
-     * @return MemberCategory
-     */
-    public function setCategory($category)
-    {
-        $this->category = $category;
-
-        return $this;
-    }
-
-    /**
-     * Get category
+     * Get money
      *
      * @return string
      */
-    public function getCategory()
+    public function getMoney()
     {
-        return $this->category;
+        return $this->money;
     }
 
     /**
@@ -148,7 +115,7 @@ class MemberCategory implements ResourceInterface
      *
      * @param string $remark
      *
-     * @return MemberCategory
+     * @return MemberRecord
      */
     public function setRemark($remark)
     {
@@ -172,7 +139,7 @@ class MemberCategory implements ResourceInterface
      *
      * @param \DateTime $createdAt
      *
-     * @return MemberCategory
+     * @return MemberRecord
      */
     public function setCreatedAt($createdAt)
     {
@@ -196,7 +163,7 @@ class MemberCategory implements ResourceInterface
      *
      * @param \DateTime $updatedAt
      *
-     * @return MemberCategory
+     * @return MemberRecord
      */
     public function setUpdatedAt($updatedAt)
     {
@@ -213,5 +180,29 @@ class MemberCategory implements ResourceInterface
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+
+    /**
+     * Set memberExtend
+     *
+     * @param \Sylius\Bundle\MemberBundle\Entity\MemberExtend $memberExtend
+     *
+     * @return MemberRecord
+     */
+    public function setMemberExtend(\Sylius\Bundle\MemberBundle\Entity\MemberExtend $memberExtend = null)
+    {
+        $this->MemberExtend = $memberExtend;
+
+        return $this;
+    }
+
+    /**
+     * Get memberExtend
+     *
+     * @return \Sylius\Bundle\MemberBundle\Entity\MemberExtend
+     */
+    public function getMemberExtend()
+    {
+        return $this->MemberExtend;
     }
 }

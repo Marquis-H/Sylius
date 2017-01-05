@@ -1,0 +1,37 @@
+sylius_grid:
+    grids:
+        sylius_admin_member_extend:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: Sylius\Bundle\MemberBundle\Entity\MemberExtend
+            fields:
+                isEnable:
+                    type: twig
+                    label: 已启用
+                    sortable: ~
+                    options:
+                        template: "@SyliusUi/Grid/Field/enabled.html.twig"
+                money:
+                    type: string
+                    label: 余额
+                    sortable: ~
+                MemberCategory:
+                    type: string
+                    label: 会员卡
+                Customer:
+                    type: string
+                    label: 顾客
+            filters:
+                isEnable:
+                    type: boolean
+                    label: 已启用
+            actions:
+                main:
+                    create:
+                        type: create
+                item:
+                    update:
+                        type: update
+                    delete:
+                        type: delete

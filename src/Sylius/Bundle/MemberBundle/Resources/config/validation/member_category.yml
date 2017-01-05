@@ -2,4 +2,4 @@ Sylius\Bundle\MemberBundle\Entity\MemberCategory:
     properties:
         name:
             - NotBlank:
-                groups: [sylius]
+                groups: [member]

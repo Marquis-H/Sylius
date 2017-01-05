@@ -1,0 +1,48 @@
+Sylius\Bundle\MemberBundle\Entity\MemberExtend:
+    type: entity
+    table: sylius_member_extend
+    repositoryClass: Sylius\Bundle\MemberBundle\Repository\MemberExtendRepository
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        money:
+            type: string
+            options:
+                comment: 余额
+        isEnable:
+            type: boolean
+            options:
+                comment: 是否启用
+        remark:
+            type: text
+            nullable: true
+        createdAt:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updatedAt:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update
+    manyToOne:
+        MemberCategory:
+            targetEntity: Sylius\Bundle\MemberBundle\Entity\MemberCategory
+            joinColumn:
+                name: MemberCategoryId
+                referencedColumnName: id
+                onDelete: SET NULL
+        Customer:
+            targetEntity: Sylius\Component\Customer\Model\Customer
+            joinColumn:
+                name: CustomerId
+                referencedColumnName: id
+                onDelete: SET NULL
+    oneToMany:
+        MemberRecord:
+            targetEntity: Sylius\Bundle\MemberBundle\Entity\MemberRecord
+            mappedBy: MemberExtend

@@ -1,0 +1,29 @@
+sylius_grid:
+    grids:
+        sylius_admin_member_record:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: Sylius\Bundle\MemberBundle\Entity\MemberRecord
+            fields:
+                type:
+                    type: twig
+                    label: 类型
+                    sortable: ~
+                    options:
+                        template: "@SyliusUi/Grid/Field/state.html.twig"
+                money:
+                    type: string
+                    label: 金额
+                    sortable: ~
+                MemberExtend:
+                    type: string
+                    label: 所属会员卡
+            filters:
+                money:
+                    type: string
+                    label: 金额
+            actions:
+                main:
+                    create:
+                        type: create

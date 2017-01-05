@@ -105,3 +105,9 @@ sylius_admin_zone:
 
 sylius_admin_member_category:
     resource: "@SyliusAdminBundle/Resources/config/routing/member_category.yml"
+
+sylius_admin_member_extend:
+    resource: "@SyliusAdminBundle/Resources/config/routing/member_extend.yml"
+
+sylius_admin_member_record:
+    resource: "@SyliusAdminBundle/Resources/config/routing/member_record.yml"
