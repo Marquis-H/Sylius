@@ -1,0 +1,37 @@
+Sylius\Bundle\MemberBundle\Entity\MemberCategory:
+    type: entity
+    table: sylius_member_category
+    repositoryClass: Sylius\Bundle\MemberBundle\Repository\MemberCategoryRepository
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            unique: true
+            options:
+                comment: 名称
+        isEnable:
+            type: boolean
+            options:
+                comment: 是否启用
+        category:
+            type: string
+            nullable: true
+            options:
+                comment: 类别
+        remark:
+            type: text
+            nullable: true
+        createdAt:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: create
+        updatedAt:
+            type: datetime
+            gedmo:
+                timestampable:
+                    on: update

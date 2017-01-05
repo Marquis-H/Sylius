@@ -27,6 +27,7 @@ imports:
     - { resource: "@SyliusAdminBundle/Resources/config/grids/tax_rate.yml" }
     - { resource: "@SyliusAdminBundle/Resources/config/grids/taxon.yml" }
     - { resource: "@SyliusAdminBundle/Resources/config/grids/zone.yml" }
+    - { resource: "@SyliusAdminBundle/Resources/config/grids/member_category.yml" }
 
 sylius_grid:
     templates:

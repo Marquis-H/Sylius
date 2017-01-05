@@ -1,4 +1,6 @@
 services:
-#    member.example:
-#        class: MemberBundle\Example
-#        arguments: ["@service_id", "plain_value", "%parameter%"]
+    sylius.form.type.member_categroy:
+        class: Sylius\Bundle\MemberBundle\Form\Type\MemberCategoryType
+        arguments: [ %sylius.model.member_category.class%, ['sylius']]
+        tags:
+            - { name: form.type }

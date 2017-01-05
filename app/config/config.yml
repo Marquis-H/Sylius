@@ -6,10 +6,10 @@ imports:
     - { resource: "@SyliusAdminBundle/Resources/config/app/config.yml" }
     - { resource: "@SyliusShopBundle/Resources/config/app/config.yml" }
     - { resource: "@SyliusApiBundle/Resources/config/app/config.yml" }
+    - { resource: "@SyliusMemberBundle/Resources/config/app/config.yml" }
 
     - { resource: "parameters.yml" }
     - { resource: "security.yml" }
-    - { resource: "@MemberBundle/Resources/config/services.yml" }
 
 framework:
     translator: { fallbacks: ["%locale%"] }

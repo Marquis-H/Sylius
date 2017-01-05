@@ -49,6 +49,11 @@ sylius:
             source_currency: 源货币
             target_currency: 目标货币
             ratio: 比率
+        member:
+            name: 名称
+            enabled: 已启用
+            category: 类别
+            remark: 备注
     ui:
         abandoned: 已放弃
         about: 关于
@@ -847,3 +852,7 @@ sylius:
         criteria: 标准
         write_your_own_review: 写下您的评论
         you_are_reviewing: 你在评论
+        member_categories: 会员卡
+        manage_member_category: 会员卡管理
+        new_member_category: 创建会员卡
+        edit_member_category: 编辑会员卡

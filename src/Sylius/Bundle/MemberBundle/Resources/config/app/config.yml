@@ -1,0 +1,9 @@
+imports:
+    - { resource: "@SyliusMemberBundle/Resources/config/services.yml" }
+
+sylius_resource:
+    resources:
+        sylius.member_category:
+            classes:
+                model: Sylius\Bundle\MemberBundle\Entity\MemberCategory
+                form: Sylius\Bundle\MemberBundle\Form\Type\MemberCategoryType

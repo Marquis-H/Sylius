@@ -1,0 +1,12 @@
+member_category_index:
+    path:     /
+    defaults: { _controller: "SyliusMemberBundle:MemberCategory:index" }
+    methods:  GET
+
+member_category_show:
+    path:     /{id}/show
+    defaults: { _controller: "SyliusMemberBundle:MemberCategory:show" }
+    methods:  GET
+
+
+

@@ -1,0 +1,36 @@
+sylius_grid:
+    grids:
+        sylius_admin_member_category:
+            driver:
+                name: doctrine/orm
+                options:
+                    class: Sylius\Bundle\MemberBundle\Entity\MemberCategory
+            sorting:
+                name: asc
+            fields:
+                name:
+                    type: string
+                    label: 名称
+                    sortable: ~
+                isEnable:
+                    type: twig
+                    label: 已启用
+                    sortable: ~
+                    options:
+                        template: "@SyliusUi/Grid/Field/enabled.html.twig"
+            filters:
+                name:
+                    type: string
+                    label: 名称
+                isEnable:
+                    type: boolean
+                    label: 已启用
+            actions:
+                main:
+                    create:
+                        type: create
+                item:
+                    update:
+                        type: update
+                    delete:
+                        type: delete

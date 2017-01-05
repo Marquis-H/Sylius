@@ -1,0 +1,17 @@
+sylius_admin_member_category:
+    resource: |
+        alias: sylius.member_category
+        section: admin
+        templates: SyliusAdminBundle:Crud
+        except: ['show']
+        redirect: index
+        grid: sylius_admin_member_category
+        permission: true
+        vars:
+            all:
+                subheader: sylius.ui.manage_member_category
+                templates:
+                    form: SyliusAdminBundle:Member:_form.html.twig
+            index:
+                icon: credit card alternative
+    type: sylius.resource
