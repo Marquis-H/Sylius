@@ -38,6 +38,9 @@ var paths = {
         img: [
             vendorUiPath + 'Resources/private/img/**',
             vendorAdminPath + 'Resources/private/img/**'
+        ],
+        lib: [
+            vendorAdminPath + 'Resources/private/lib/**'
         ]
     }
 };
@@ -80,6 +83,13 @@ gulp.task('admin-img', function() {
     ;
 });
 
+gulp.task('admin-lib', function() {
+    return gulp.src(paths.admin.lib)
+        .pipe(sourcemaps.write('./'))
+        .pipe(gulp.dest(adminRootPath + 'lib/'))
+        ;
+});
+
 gulp.task('admin-watch', function() {
     livereload.listen();
 
@@ -87,7 +97,8 @@ gulp.task('admin-watch', function() {
     gulp.watch(paths.admin.sass, ['admin-css']);
     gulp.watch(paths.admin.css, ['admin-css']);
     gulp.watch(paths.admin.img, ['admin-img']);
+    gulp.watch(paths.admin.lib, ['admin-lib']);
 });
 
-gulp.task('default', ['admin-js', 'admin-css', 'admin-img']);
+gulp.task('default', ['admin-js', 'admin-css', 'admin-img', 'admin-lib']);
 gulp.task('watch', ['default', 'admin-watch']);
