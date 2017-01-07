@@ -69,7 +69,8 @@
         "lokielse/omnipay-unionpay": "dev-master",
         "lokielse/omnipay-wechatpay": "^1.0",
         "jacklam/php-tools": "dev-master",
-        "sensio/generator-bundle": "~3.0"
+        "sensio/generator-bundle": "~3.0",
+        "payum/omnipay-bridge": "^1.2"
     },
     "require-dev": {
         "akeneo/phpspec-skip-example-extension": "^2.0",
