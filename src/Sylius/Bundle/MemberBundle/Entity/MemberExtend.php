@@ -75,6 +75,21 @@ class MemberExtend implements ResourceInterface
     private $customer;
 
     /**
+     * @var string
+     */
+    private $num;
+
+    /**
+     * @var string
+     */
+    private $code;
+
+    /**
+     * @var \Sylius\Component\Customer\Model\Customer
+     */
+    private $invitedCustomer;
+
+    /**
      * @var ArrayCollection
      */
     private $multipleCustomer;
@@ -311,5 +326,77 @@ class MemberExtend implements ResourceInterface
     public function getCustomer()
     {
         return $this->customer;
+    }
+
+    /**
+     * Set num
+     *
+     * @param string $num
+     *
+     * @return MemberExtend
+     */
+    public function setNum($num)
+    {
+        $this->num = $num;
+
+        return $this;
+    }
+
+    /**
+     * Get num
+     *
+     * @return string
+     */
+    public function getNum()
+    {
+        return $this->num;
+    }
+
+    /**
+     * Set code
+     *
+     * @param string $code
+     *
+     * @return MemberExtend
+     */
+    public function setCode($code)
+    {
+        $this->code = $code;
+
+        return $this;
+    }
+
+    /**
+     * Get code
+     *
+     * @return string
+     */
+    public function getCode()
+    {
+        return $this->code;
+    }
+
+    /**
+     * Set invitedCustomer
+     *
+     * @param \Sylius\Component\Customer\Model\Customer $invitedCustomer
+     *
+     * @return MemberExtend
+     */
+    public function setInvitedCustomer(\Sylius\Component\Customer\Model\Customer $invitedCustomer = null)
+    {
+        $this->invitedCustomer = $invitedCustomer;
+
+        return $this;
+    }
+
+    /**
+     * Get invitedCustomer
+     *
+     * @return \Sylius\Component\Customer\Model\Customer
+     */
+    public function getInvitedCustomer()
+    {
+        return $this->invitedCustomer;
     }
 }

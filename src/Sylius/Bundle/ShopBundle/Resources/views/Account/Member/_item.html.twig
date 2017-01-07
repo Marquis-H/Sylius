@@ -8,6 +8,13 @@
             <div class="event">
                 <div class="content">
                     <div class="summary">
+                        <span>编号: {{ member.num }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="event">
+                <div class="content">
+                    <div class="summary">
                         <span>积分: {{ member.money }}</span>
                     </div>
                 </div>
@@ -30,6 +37,10 @@
     </div>
     <div class="extra content">
         <button class="ui button record">使用记录</button>
+        <button class="ui button primary code-data code"
+                data-content='{{ 'http://'~app.request.server.get('SERVER_NAME')~path('sylius_shop_register_invite', {'invite_code':member.code}) }}'>
+            复制邀请链接
+        </button>
         <div class="ui modal record-list">
             <i class="close icon"></i>
             <div class="header">
@@ -37,7 +48,7 @@
             </div>
             <div class="content">
                 <div class="description">
-                    <div class="ui stackable cards" id="sylius-addresses">
+                    <div class="ui stackable cards">
                         {% include '@SyliusShop/Account/Member/_use_record.html.twig' %}
                     </div>
                 </div>
@@ -47,11 +58,23 @@
 </div>
 
 {% block javascripts %}
-    <script type="text/javascript" src="{{ asset('assets/shop/js/app.js') }}"></script>
     <script>
         $(function () {
             $('.record').click(function () {
                 $('.record-list').modal('show');
+            });
+            //复制邀请链接
+            $('.code-data').popup();
+            $('.code').click(function () {
+                var aux = document.createElement("input");
+                var Url = $(this).data('content');
+                // 设置元素内容
+                aux.setAttribute("value", Url);
+                // 将元素插入页面进行调用
+                document.body.appendChild(aux);
+                aux.select(); // 选择对象
+                document.execCommand("Copy"); // 执行浏览器复制命令
+                alert("已复制好，可贴粘。");
             });
         });
     </script>

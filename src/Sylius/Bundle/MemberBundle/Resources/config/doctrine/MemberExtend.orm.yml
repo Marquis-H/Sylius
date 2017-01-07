@@ -16,6 +16,16 @@ Sylius\Bundle\MemberBundle\Entity\MemberExtend:
             type: boolean
             options:
                 comment: 是否启用
+        num:
+            type: string
+            nullable: true
+            options:
+                comment: 编号
+        code:
+            type: string
+            nullable: true
+            options:
+                comment: 邀请码
         remark:
             type: text
             nullable: true
@@ -42,7 +52,18 @@ Sylius\Bundle\MemberBundle\Entity\MemberExtend:
                 name: CustomerId
                 referencedColumnName: id
                 onDelete: SET NULL
+        invitedCustomer:
+            targetEntity: Sylius\Component\Customer\Model\Customer
+            joinColumn:
+                name: InvitedCustomerId
+                referencedColumnName: id
+                onDelete: SET NULL
+            options:
+                comment: 邀请人
     oneToMany:
         MemberRecord:
             targetEntity: Sylius\Bundle\MemberBundle\Entity\MemberRecord
             mappedBy: MemberExtend
+    uniqueConstraints:
+        unique_idx:
+            columns: [MemberCategoryId, num]

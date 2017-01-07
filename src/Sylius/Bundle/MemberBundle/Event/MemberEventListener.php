@@ -13,6 +13,7 @@ use \Doctrine\ORM\Event\LifecycleEventArgs;
 use Sylius\Bundle\MemberBundle\Entity\MemberExtend;
 use Sylius\Bundle\MemberBundle\Entity\MemberRecord;
 use Symfony\Component\DependencyInjection\ContainerAwareTrait;
+use Util\Str;
 
 class MemberEventListener implements EventSubscriber
 {
@@ -33,6 +34,17 @@ class MemberEventListener implements EventSubscriber
             foreach ($entity->getMultipleCustomer() as $value) {
                 $newExtend = clone $entity;
                 $newExtend->setCustomer($value);
+                //设置编号
+                $extend = $em->getRepository('SyliusMemberBundle:MemberExtend')->findOneBy([
+                    'MemberCategory' => $newExtend->getMemberCategory()
+                ], ['num' => 'desc']);
+                if ($extend === null) {
+                    $newExtend->setNum(str_pad(1, 6, 0, STR_PAD_LEFT));
+                } else {
+                    $newExtend->setNum(str_pad(intval($extend->getNum()) + 1, 6, 0, STR_PAD_LEFT));
+                }
+                //设置邀请码
+                $newExtend->setCode(Str::generateUniqidString());
                 $newExtend->setMultipleCustomer(null);
                 $em->persist($newExtend);
                 $em->flush();

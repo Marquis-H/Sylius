@@ -22,7 +22,7 @@
                 </div>
                 <div class="content">
                     <div class="description">
-                        <div class="ui stackable cards" id="sylius-addresses">
+                        <div class="ui stackable cards">
                             {% for member in account_members %}
                                 {% if member.isEnable == false %}
                                     {% include '@SyliusShop/Account/Member/_member_list.html.twig' %}
@@ -36,7 +36,7 @@
     </div>
     {% if account_members|length > 0 %}
         {% set i = 0 %}
-        <div class="ui stackable cards" id="sylius-addresses" style="margin: 0">
+        <div class="ui stackable cards" id="sylius" style="margin: 0">
             {% for member in account_members %}
                 {% if member.isEnable %}
                     {% set i = 1 %}
@@ -51,7 +51,6 @@
 {% endblock %}
 
 {% block javascripts %}
-    {{ parent() }}
     <script>
         $(function () {
             $('.add-member').click(function () {
