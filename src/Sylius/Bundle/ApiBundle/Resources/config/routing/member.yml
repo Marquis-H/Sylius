@@ -1,0 +1,4 @@
+member_extend_enable:
+    path:     /card_enable
+    defaults: { _controller: "SyliusMemberBundle:MemberExtend:enableMemberCard" }
+    methods: [POST]

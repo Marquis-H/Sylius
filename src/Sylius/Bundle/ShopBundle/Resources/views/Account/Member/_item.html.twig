@@ -8,7 +8,7 @@
             <div class="event">
                 <div class="content">
                     <div class="summary">
-                        <span>余额: {{ member.money }}</span>
+                        <span>积分: {{ member.money }}</span>
                     </div>
                 </div>
             </div>
@@ -29,6 +29,30 @@
         </div>
     </div>
     <div class="extra content">
-        <button class="ui button">使用记录</button>
+        <button class="ui button record">使用记录</button>
+        <div class="ui modal record-list">
+            <i class="close icon"></i>
+            <div class="header">
+                使用记录
+            </div>
+            <div class="content">
+                <div class="description">
+                    <div class="ui stackable cards" id="sylius-addresses">
+                        {% include '@SyliusShop/Account/Member/_use_record.html.twig' %}
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
+
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('assets/shop/js/app.js') }}"></script>
+    <script>
+        $(function () {
+            $('.record').click(function () {
+                $('.record-list').modal('show');
+            });
+        });
+    </script>
+{% endblock %}

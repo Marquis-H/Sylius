@@ -8,7 +8,7 @@
             <div class="event">
                 <div class="content">
                     <div class="summary">
-                        <span>余额: {{ member.money }}</span>
+                        <span>积分: {{ member.money }}</span>
                     </div>
                 </div>
             </div>
@@ -28,8 +28,29 @@
             </div>
         </div>
     </div>
-    <div class="ui bottom attached button">
+    <a class="ui bottom attached button add" href="javascript:void(0)">
         <i class="add icon"></i>
         启用
-    </div>
+    </a>
 </div>
+
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('assets/shop/js/app.js') }}"></script>
+    <script>
+        $(function () {
+            $('.add').click(function () {
+                $.post('{{ path('member_extend_enable') }}', {
+                    id: '{{ member.id }}'
+                }, function (json) {
+                    if (json.code == 0) {
+                        window.location.reload()
+                    } else {
+                        layer.alert(json.message, {}, function () {
+                            window.location.reload()
+                        });
+                    }
+                }, 'json');
+            });
+        });
+    </script>
+{% endblock %}

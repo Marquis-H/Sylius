@@ -51,10 +51,10 @@
 {% endblock %}
 
 {% block javascripts %}
-    <script type="text/javascript" src="{{ asset('assets/shop/js/app.js') }}"></script>
+    {{ parent() }}
     <script>
         $(function () {
-            $('.add-member').click(function (json) {
+            $('.add-member').click(function () {
                 $('.member-list').modal('show');
             });
         });

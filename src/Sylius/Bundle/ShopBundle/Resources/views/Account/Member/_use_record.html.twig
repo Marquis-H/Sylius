@@ -1,0 +1,19 @@
+<table class="ui celled table">
+    <thead>
+    <tr>
+        <th>类型</th>
+        <th>积分</th>
+        <th>时间</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for record in member.MemberRecord %}
+        {% set type = 'sylius.ui.' ~ record.type %}
+        <tr>
+            <td>{{ type|trans({}, 'messages') }}</td>
+            <td>{{ record.money }}</td>
+            <td>{{ record.createdAt.format('Y-m-d H:i') }}</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>

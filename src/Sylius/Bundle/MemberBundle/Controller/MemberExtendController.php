@@ -2,40 +2,41 @@
 
 namespace Sylius\Bundle\MemberBundle\Controller;
 
+use Sylius\Bundle\MemberBundle\Controller\Abstracts\AbstractController;
 use Sylius\Bundle\MemberBundle\Entity\MemberExtend;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 
 /**
  * Memberextend controller.
  *
  */
-class MemberExtendController extends Controller
+class MemberExtendController extends AbstractController
 {
     /**
-     * Lists all memberExtend entities.
+     * 启用会员卡
      *
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\JsonResponse
      */
-    public function indexAction()
+    public function enableMemberCardAction(Request $request)
     {
-        $em = $this->getDoctrine()->getManager();
+        $em = $this->get('doctrine.orm.entity_manager');
+        $post = $request->request;
+        $id = $post->get('id');
 
-        $memberExtends = $em->getRepository('SyliusMemberBundle:MemberExtend')->findAll();
+        $memberExtend = $em->getRepository('SyliusMemberBundle:MemberExtend')->findOneBy([
+            'id' => $id
+        ]);
 
-        return $this->render('memberextend/index.html.twig', array(
-            'memberExtends' => $memberExtends,
-        ));
-    }
+        if ($memberExtend === null)
+            return $this->createFailureJSONResponse(1, 'error');
 
-    /**
-     * Finds and displays a memberExtend entity.
-     *
-     */
-    public function showAction(MemberExtend $memberExtend)
-    {
+        $memberExtend->setIsEnable(true);
+        $em->persist($memberExtend);
+        $em->flush();
 
-        return $this->render('memberextend/show.html.twig', array(
-            'memberExtend' => $memberExtend,
-        ));
+        return $this->createSuccessJSONResponse('success');
     }
 }
