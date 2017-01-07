@@ -14,7 +14,7 @@ sylius_grid:
                         template: "@SyliusUi/Grid/Field/enabled.html.twig"
                 money:
                     type: string
-                    label: 余额
+                    label: 积分
                     sortable: ~
                 MemberCategory:
                     type: string

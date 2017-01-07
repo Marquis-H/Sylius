@@ -14,7 +14,7 @@ sylius_grid:
                         template: "@SyliusUi/Grid/Field/state.html.twig"
                 money:
                     type: string
-                    label: 金额
+                    label: 积分
                     sortable: ~
                 MemberExtend:
                     type: string
@@ -22,7 +22,7 @@ sylius_grid:
             filters:
                 money:
                     type: string
-                    label: 金额
+                    label: 积分
             actions:
                 main:
                     create:

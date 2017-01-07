@@ -11,7 +11,7 @@ Sylius\Bundle\MemberBundle\Entity\MemberExtend:
         money:
             type: string
             options:
-                comment: 余额
+                comment: 积分
         isEnable:
             type: boolean
             options:

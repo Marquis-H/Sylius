@@ -55,7 +55,7 @@ sylius:
             remark: 备注
             member_category: 会员卡
             costomer: 顾客
-            money: 余额
+            money: 积分
             type: 类型
             member_extened: 有效会员卡
         variant:
@@ -868,7 +868,7 @@ sylius:
         member_extends: 发放会员卡
         manage_member_extend: 发放会员卡管理
         new_member_extend: 发放新卡
-        member_money: 余额
+        member_money: 积分
         member_records: 会员卡使用记录
         manage_member_record: 会员卡使用记录管理
         new_member_record: 新增会员卡使用记录
