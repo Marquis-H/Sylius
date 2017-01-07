@@ -36,7 +36,7 @@ Sylius\Bundle\MemberBundle\Entity\MemberExtend:
                 name: MemberCategoryId
                 referencedColumnName: id
                 onDelete: SET NULL
-        Customer:
+        customer:
             targetEntity: Sylius\Component\Customer\Model\Customer
             joinColumn:
                 name: CustomerId

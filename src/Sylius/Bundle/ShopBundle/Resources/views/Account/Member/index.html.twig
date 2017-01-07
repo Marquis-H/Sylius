@@ -1,0 +1,62 @@
+{% extends 'SyliusShopBundle:Account/Member:layout.html.twig' %}
+
+{% import '@SyliusUi/Macro/messages.html.twig' as messages %}
+{% import '@SyliusUi/Macro/buttons.html.twig' as buttons %}
+
+{% block subcontent %}
+    <div class="ui stackable two column grid">
+        <div class="column">
+            <h1 class="ui header">
+                {{ 'sylius.ui.member_categories'|trans }}
+                <div class="sub header">{{ 'sylius.ui.manage_your_saved_member'|trans }}</div>
+            </h1>
+        </div>
+        <div class="middle aligned column">
+            <a href="javascript:void(0)" class="ui right floated blue button add-member"><i
+                        class="circle plus icon"></i> {{ 'sylius.ui.add_member_card'|trans }}</a>
+
+            <div class="ui modal member-list">
+                <i class="close icon"></i>
+                <div class="header">
+                    会员卡列表
+                </div>
+                <div class="content">
+                    <div class="description">
+                        <div class="ui stackable cards" id="sylius-addresses">
+                            {% for member in account_members %}
+                                {% if member.isEnable == false %}
+                                    {% include '@SyliusShop/Account/Member/_member_list.html.twig' %}
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% if account_members|length > 0 %}
+        {% set i = 0 %}
+        <div class="ui stackable cards" id="sylius-addresses" style="margin: 0">
+            {% for member in account_members %}
+                {% if member.isEnable %}
+                    {% set i = 1 %}
+                    {% include '@SyliusShop/Account/Member/_item.html.twig' %}
+                {% endif %}
+            {% endfor %}
+        </div>
+        {% if i == 0 %}{{ messages.info('sylius.ui.you_have_no_member') }}{% endif %}
+    {% else %}
+        {{ messages.info('sylius.ui.you_have_no_member') }}
+    {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+    <script type="text/javascript" src="{{ asset('assets/shop/js/app.js') }}"></script>
+    <script>
+        $(function () {
+            $('.add-member').click(function (json) {
+                $('.member-list').modal('show');
+            });
+        });
+    </script>
+{% endblock %}

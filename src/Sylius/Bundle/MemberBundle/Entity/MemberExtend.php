@@ -72,7 +72,7 @@ class MemberExtend implements ResourceInterface
     /**
      * @var \Sylius\Component\Customer\Model\Customer
      */
-    private $Customer;
+    private $customer;
 
     /**
      * @var ArrayCollection
@@ -298,7 +298,7 @@ class MemberExtend implements ResourceInterface
      */
     public function setCustomer(\Sylius\Component\Customer\Model\Customer $customer = null)
     {
-        $this->Customer = $customer;
+        $this->customer = $customer;
 
         return $this;
     }
@@ -310,6 +310,6 @@ class MemberExtend implements ResourceInterface
      */
     public function getCustomer()
     {
-        return $this->Customer;
+        return $this->customer;
     }
 }

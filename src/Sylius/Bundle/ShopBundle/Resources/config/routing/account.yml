@@ -9,6 +9,10 @@ sylius_shop_account_address_book:
     resource: "@SyliusShopBundle/Resources/config/routing/account/address_book.yml"
     prefix: /address-book
 
+sylius_shop_account_member:
+    resource: "@SyliusShopBundle/Resources/config/routing/account/member.yml"
+    prefix: /member
+
 sylius_shop_account_root:
     path: /
     defaults:

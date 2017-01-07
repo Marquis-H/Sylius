@@ -1,0 +1,11 @@
+Sylius\Bundle\MemberBundle\Entity\MemberRecord:
+    properties:
+        money:
+            - NotBlank:
+                groups: [member]
+        type:
+            - NotBlank:
+                groups: [member]
+        MemberExtend:
+            - NotBlank:
+                groups: [member]

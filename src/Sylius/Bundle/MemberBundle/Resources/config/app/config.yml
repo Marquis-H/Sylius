@@ -15,3 +15,6 @@ sylius_resource:
             classes:
                 model: Sylius\Bundle\MemberBundle\Entity\MemberRecord
                 form: Sylius\Bundle\MemberBundle\Form\Type\MemberRecordType
+        sylius.account_member:
+            classes:
+                model: Sylius\Bundle\MemberBundle\Entity\MemberExtend

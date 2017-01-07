@@ -79,6 +79,12 @@ final class AccountMenuBuilder
             ->setLabelAttribute('icon', 'cart')
         ;
 
+        $menu
+            ->addChild('member', ['route' => 'sylius_shop_account_member_index'])
+            ->setLabel('会员卡')
+            ->setLabelAttribute('icon', 'credit card alternative')
+        ;
+
         $this->eventDispatcher->dispatch(self::EVENT_NAME, new MenuBuilderEvent($this->factory, $menu));
 
         return $menu;
