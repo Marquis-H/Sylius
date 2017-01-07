@@ -181,3 +181,6 @@ sylius:
     payum_gateway:
         cash_on_delivery: 货到付款
         offline: 离线
+        unionpay: 银行卡
+        alipay: 支付宝
+        wechatpay: 微信支付

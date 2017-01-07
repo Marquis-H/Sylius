@@ -9,6 +9,7 @@ sylius:
             remember_me: 记住我
         option:
             name: 名称
+            position: 排序
         notes: 备注
         customer:
             subscribed_to_newsletter: 订阅邮件列表
@@ -21,8 +22,6 @@ sylius:
             slug: 产品标签
             taxons: 产品分类
         product_attribute:
-            position: 排序
-        option:
             position: 排序
         promotion:
             usage_limit: 使用限制
@@ -59,6 +58,11 @@ sylius:
             money: 余额
             type: 类型
             member_extened: 有效会员卡
+        variant:
+            tracked: 跟踪
+        promotion_coupon:
+            per_customer_usage_limit: 每个客户使用限制
+
     ui:
         abandoned: 已放弃
         about: 关于
@@ -549,7 +553,7 @@ sylius:
         promotion_coupons: 优惠券
         promotion_details: 促销详细
         promotion_information: 促销信息
-        promotion_total: 促进总计
+        promotion_total: 促销总计
         promotions: 促销活动
         province: 省/直辖市/自治区
         provinces: 省份
@@ -870,3 +874,17 @@ sylius:
         new_member_record: 新增会员卡使用记录
         consume: 消费
         recharge: 充值
+        set_as_default: 设为默认
+        manage_your_saved_member: 管理你的会员卡
+        you_have_no_member: 没有会员卡
+        add_member_card: 启用会员卡
+        select_address_from_book: 选择收货地址
+        no_shipping_methods_available: 未有发货方式
+        properties: 特性
+        not_tracked: 不跟踪
+        pay: 付款
+        total_in_base_currency: 总计基本金额
+        cash_on_delivery: 货到付款
+        unionpay: 银行卡
+        wechatpay: 微信支付
+        alipay: 支付宝
