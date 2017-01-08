@@ -13,6 +13,9 @@ namespace Sylius\Bundle\ResourceBundle\Controller;
 
 use Doctrine\Common\Persistence\ObjectManager;
 use FOS\RestBundle\View\View;
+use Sylius\Bundle\UserBundle\Event\RegisterEvent;
+use Sylius\Bundle\UserBundle\Event\UserEvent;
+use Sylius\Bundle\UserBundle\UserEvents;
 use Sylius\Component\Resource\Factory\FactoryInterface;
 use Sylius\Component\Resource\Metadata\MetadataInterface;
 use Sylius\Component\Resource\Repository\RepositoryInterface;
@@ -457,5 +460,70 @@ class ResourceController extends Controller
         }
 
         return $resource;
+    }
+
+    /**
+     * 邀请注册
+     *
+     * @param Request $request
+     * @param $invite_code
+     * @return mixed|\Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function createInviteAction(Request $request, $invite_code)
+    {
+        $configuration = $this->requestConfigurationFactory->create($this->metadata, $request);
+
+        $this->isGrantedOr403($configuration, ResourceActions::CREATE);
+        $newResource = $this->newResourceFactory->create($configuration, $this->factory);
+        $form = $this->resourceFormFactory->create($configuration, $newResource);
+
+        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()) {
+            $newResource = $form->getData();
+
+            $event = $this->eventDispatcher->dispatchPreEvent(ResourceActions::CREATE, $configuration, $newResource);
+
+            if ($event->isStopped() && !$configuration->isHtmlRequest()) {
+                throw new HttpException($event->getErrorCode(), $event->getMessage());
+            }
+            if ($event->isStopped()) {
+                $this->flashHelper->addFlashFromEvent($configuration, $event);
+
+                return $this->redirectHandler->redirectToIndex($configuration, $newResource);
+            }
+
+            if ($configuration->hasStateMachine()) {
+                $this->stateMachine->apply($configuration, $newResource);
+            }
+
+            $this->repository->add($newResource);
+            $this->eventDispatcher->dispatchPostEvent(ResourceActions::CREATE, $configuration, $newResource);
+
+            if (!$configuration->isHtmlRequest()) {
+                return $this->viewHandler->handle($configuration, View::create($newResource, Response::HTTP_CREATED));
+            }
+
+            $this->flashHelper->addSuccessFlash($configuration, ResourceActions::CREATE, $newResource);
+            
+            $event = new RegisterEvent($newResource, $invite_code);
+            $this->get('event_dispatcher')->dispatch(UserEvents::INVITE_REGISTER, $event);
+
+            return $this->redirectHandler->redirectToResource($configuration, $newResource);
+        }
+
+        if (!$configuration->isHtmlRequest()) {
+            return $this->viewHandler->handle($configuration, View::create($form, Response::HTTP_BAD_REQUEST));
+        }
+
+        $view = View::create()
+            ->setData([
+                'configuration' => $configuration,
+                'metadata' => $this->metadata,
+                'resource' => $newResource,
+                $this->metadata->getName() => $newResource,
+                'form' => $form->createView(),
+            ])
+            ->setTemplate($configuration->getTemplate(ResourceActions::CREATE . '.html'));
+
+        return $this->viewHandler->handle($configuration, $view);
     }
 }

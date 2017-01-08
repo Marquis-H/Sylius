@@ -32,4 +32,7 @@ final class UserEvents
      * Occurs when the user is logged in programmatically.
      */
     const SECURITY_IMPLICIT_LOGIN = 'sylius.user.security.implicit_login';
+    
+    //邀请注册
+    const INVITE_REGISTER = 'sylius.user.invite_register';
 }

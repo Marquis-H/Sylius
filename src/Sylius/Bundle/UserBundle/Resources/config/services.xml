@@ -72,5 +72,11 @@
             <argument type="collection"><argument>sylius</argument></argument>
             <tag name="form.type" />
         </service>
+        <service id="sylius.listener.invite_register" class="Sylius\Bundle\UserBundle\EventListener\RegisterListener">
+            <tag name="kernel.event_subscriber" />
+            <call method="setContainer">
+                <argument type="service" id="service_container" />
+            </call>
+        </service>
     </services>
 </container>

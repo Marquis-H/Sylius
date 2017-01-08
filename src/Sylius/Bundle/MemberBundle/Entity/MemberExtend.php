@@ -42,7 +42,7 @@ class MemberExtend implements ResourceInterface
     /**
      * @var boolean
      */
-    private $isEnable;
+    private $isEnable = false;
 
     /**
      * @var string
