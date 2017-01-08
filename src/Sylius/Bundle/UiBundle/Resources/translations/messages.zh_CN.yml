@@ -54,7 +54,7 @@ sylius:
             category: 类别
             remark: 备注
             member_category: 会员卡
-            costomer: 顾客
+            customer: 顾客
             money: 积分
             type: 类型
             member_extened: 有效会员卡

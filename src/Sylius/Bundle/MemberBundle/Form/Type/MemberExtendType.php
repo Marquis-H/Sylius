@@ -37,7 +37,7 @@ class MemberExtendType extends AbstractResourceType
         if ($id) {
             $builder
                 ->add('Customer', EntityType::class, [
-                    'label' => 'sylius.form.member.costomer',
+                    'label' => 'sylius.form.member.customer',
                     'class' => 'Sylius\Component\Customer\Model\Customer',
                     'multiple' => false,
                     'disabled' => true
@@ -45,7 +45,7 @@ class MemberExtendType extends AbstractResourceType
         } else {
             $builder
                 ->add('multipleCustomer', EntityType::class, [
-                    'label' => 'sylius.form.member.costomer',
+                    'label' => 'sylius.form.member.customer',
                     'class' => 'Sylius\Component\Customer\Model\Customer',
                     'constraints' => [
                         new NotBlank(['groups' => ['member']]),
