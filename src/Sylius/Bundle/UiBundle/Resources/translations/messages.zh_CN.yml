@@ -58,6 +58,9 @@ sylius:
             money: 积分
             type: 类型
             member_extened: 有效会员卡
+            grade_type: 会员等级
+            add_grade: 新增等级所需积分
+            invite_point: 邀请人所获积分
         variant:
             tracked: 跟踪
         promotion_coupon:

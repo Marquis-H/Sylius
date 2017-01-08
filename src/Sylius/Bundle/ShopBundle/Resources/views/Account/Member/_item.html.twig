@@ -3,7 +3,7 @@
         <div class="header">{{ member.MemberCategory }}</div>
     </div>
     <div class="content">
-        <h4 class="ui sub header">{% if member.isEnable %}已启用{% else %}未启用{% endif %}</h4>
+        <h4 class="ui sub header">{% if member.isEnable %}已启用-等级: {{ member.grade }}{% else %}未启用{% endif %}</h4>
         <div class="ui small feed">
             <div class="event">
                 <div class="content">

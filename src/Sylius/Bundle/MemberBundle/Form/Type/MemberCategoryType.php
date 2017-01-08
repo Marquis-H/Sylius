@@ -9,7 +9,9 @@
 namespace Sylius\Bundle\MemberBundle\Form\Type;
 
 use Sylius\Bundle\ResourceBundle\Form\Type\AbstractResourceType;
+use Sylius\Component\Addressing\Model\Province;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\FormBuilderInterface;
 
 /**
@@ -29,6 +31,16 @@ class MemberCategoryType extends AbstractResourceType
             ])
             ->add('isEnable', CheckboxType::class, [
                 'label' => 'sylius.form.member.enabled',
+            ])
+            ->add('gradeType', CollectionType::class, [
+                'allow_add' => true,
+                'allow_delete' => true,
+                'by_reference' => false,
+                'button_add_label' => 'sylius.form.member.add_grade',
+                'label' => 'sylius.form.member.grade_type'
+            ])
+            ->add('invitePoint', null, [
+                'label' => 'sylius.form.member.invite_point',
             ])
             ->add('category', null, [
                 'label' => 'sylius.form.member.category',

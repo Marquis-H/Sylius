@@ -8,7 +8,9 @@
 
 namespace Sylius\Bundle\UserBundle\EventListener;
 
+use Sylius\Bundle\MemberBundle\Constants\MemberRecordConstant;
 use Sylius\Bundle\MemberBundle\Entity\MemberExtend;
+use Sylius\Bundle\MemberBundle\Entity\MemberRecord;
 use Sylius\Bundle\UserBundle\Event\RegisterEvent;
 use Sylius\Bundle\UserBundle\UserEvents;
 use Symfony\Component\DependencyInjection\ContainerAwareTrait;
@@ -54,7 +56,7 @@ class RegisterListener implements EventSubscriberInterface
         $memberExtend = new MemberExtend();
         $memberExtend->setMemberCategory($member->getMemberCategory());
         $memberExtend->setCustomer($user);
-        $memberExtend->setMoney(1000);
+        $memberExtend->setMoney(0);
         $memberExtend->setIsEnable(true);
         //设置编号
         $extend = $em->getRepository('SyliusMemberBundle:MemberExtend')->findOneBy([
@@ -65,10 +67,35 @@ class RegisterListener implements EventSubscriberInterface
         } else {
             $memberExtend->setNum(str_pad(intval($extend->getNum()) + 1, 6, 0, STR_PAD_LEFT));
         }
+        //推荐人获得推荐积分
+        $this->inviteMoney($member);
         //设置邀请码
         $memberExtend->setCode(Str::generateUniqidString());
         $memberExtend->setInvitedCustomer($inviteCustomer);
         $em->persist($memberExtend);
+        $em->flush();
+    }
+
+    /**
+     * 推荐人获得推荐积分
+     *
+     * @param MemberExtend $member
+     */
+    private function inviteMoney(MemberExtend $member)
+    {
+        $memberCategory = $member->getMemberCategory();
+        $em = $this->container->get('doctrine.orm.entity_manager');
+        //使用记录
+        $memberRecord = new MemberRecord();
+        $memberRecord->setMoney($memberCategory->getInvitePoint());
+        $memberRecord->setMemberExtend($member);
+        $memberRecord->setType(MemberRecordConstant::MEMBER_RECORD_TYPE_REWARD);
+        $memberRecord->setRemark('推荐奖励');
+        //更新积分
+        $money = (float)$member->getMoney() + (float)$memberCategory->getInvitePoint();
+        $member->setMoney($money);
+        $em->persist($memberRecord);
+        $em->persist($member);
         $em->flush();
     }
 }

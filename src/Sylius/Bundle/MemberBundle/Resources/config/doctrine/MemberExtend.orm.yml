@@ -26,6 +26,11 @@ Sylius\Bundle\MemberBundle\Entity\MemberExtend:
             nullable: true
             options:
                 comment: 邀请码
+        grade:
+            type: string
+            nullable: true
+            options:
+                comment: 等级(按消费升级等级)
         remark:
             type: text
             nullable: true

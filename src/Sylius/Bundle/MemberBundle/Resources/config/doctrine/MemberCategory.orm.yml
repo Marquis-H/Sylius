@@ -22,6 +22,16 @@ Sylius\Bundle\MemberBundle\Entity\MemberCategory:
             nullable: true
             options:
                 comment: 类别
+        gradeType:
+            type: array
+            nullable: true
+            options:
+                comment: 按消费划分等级
+        invitePoint:
+            type: string
+            nullable: true
+            options:
+                comment: 推荐人每次消费,获得的积分
         remark:
             type: text
             nullable: true

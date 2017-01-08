@@ -63,6 +63,11 @@ class MemberRecord implements ResourceInterface
     private $MemberExtend;
 
     /**
+     * @var string
+     */
+    private $useAddress;
+
+    /**
      * Set type
      *
      * @param string $type
@@ -204,5 +209,29 @@ class MemberRecord implements ResourceInterface
     public function getMemberExtend()
     {
         return $this->MemberExtend;
+    }
+
+    /**
+     * Set useAddress
+     *
+     * @param string $useAddress
+     *
+     * @return MemberRecord
+     */
+    public function setUseAddress($useAddress)
+    {
+        $this->useAddress = $useAddress;
+
+        return $this;
+    }
+
+    /**
+     * Get useAddress
+     *
+     * @return string
+     */
+    public function getUseAddress()
+    {
+        return $this->useAddress;
     }
 }

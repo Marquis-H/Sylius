@@ -3,3 +3,7 @@ Sylius\Bundle\MemberBundle\Entity\MemberCategory:
         name:
             - NotBlank:
                 groups: [member]
+        gradeType:
+            - NotBlank:
+                message: 请设置会员等级所需积分
+                groups: [member]

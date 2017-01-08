@@ -16,6 +16,10 @@ sylius_grid:
                     type: string
                     label: 积分
                     sortable: ~
+                grade:
+                    type: string
+                    label: 等级
+                    sortable: ~
                 MemberCategory:
                     type: string
                     label: 会员卡

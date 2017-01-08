@@ -33,6 +33,10 @@ class MemberExtendType extends AbstractResourceType
             ->add('MemberCategory', EntityType::class, [
                 'label' => 'sylius.form.member.member_category',
                 'class' => 'Sylius\Bundle\MemberBundle\Entity\MemberCategory',
+            ])
+            ->add('grade', null, [
+                'label' => 'sylius.form.member.customer',
+                'disabled' => true
             ]);
         if ($id) {
             $builder

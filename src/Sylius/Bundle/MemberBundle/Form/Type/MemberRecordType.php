@@ -21,12 +21,18 @@ class MemberRecordType extends AbstractResourceType
         $builder
             ->add('type', ChoiceType::class, [
                 'choices' => [
-                    '消费' => 'consume', '充值' => 'recharge'
+                    '消费' => 'consume', '充值' => 'recharge', '奖励' => 'reward'
                 ],
                 'label' => 'sylius.form.member.type',
             ])
             ->add('money', null, [
                 'label' => 'sylius.form.member.money',
+            ])
+            ->add('useAddress', ChoiceType::class, [
+                'choices' => [
+                    '店内' => 'store', '商城' => 'shopping_mall'
+                ],
+                'label' => 'sylius.form.member.use_address',
             ])
             ->add('MemberExtend', EntityType::class, [
                 'label' => 'sylius.form.member.member_extened',

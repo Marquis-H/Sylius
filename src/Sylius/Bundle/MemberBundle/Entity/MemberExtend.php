@@ -37,7 +37,7 @@ class MemberExtend implements ResourceInterface
     /**
      * @var string
      */
-    private $money;
+    private $money = 0;
 
     /**
      * @var boolean
@@ -93,6 +93,11 @@ class MemberExtend implements ResourceInterface
      * @var ArrayCollection
      */
     private $multipleCustomer;
+
+    /**
+     * @var string
+     */
+    private $grade = 0;
 
     /**
      * @return ArrayCollection
@@ -398,5 +403,29 @@ class MemberExtend implements ResourceInterface
     public function getInvitedCustomer()
     {
         return $this->invitedCustomer;
+    }
+
+    /**
+     * Set grade
+     *
+     * @param string $grade
+     *
+     * @return MemberExtend
+     */
+    public function setGrade($grade)
+    {
+        $this->grade = $grade;
+
+        return $this;
+    }
+
+    /**
+     * Get grade
+     *
+     * @return string
+     */
+    public function getGrade()
+    {
+        return $this->grade;
     }
 }

@@ -16,6 +16,11 @@ Sylius\Bundle\MemberBundle\Entity\MemberRecord:
             type: string
             options:
                 comment: 金额
+        useAddress:
+            type: string
+            nullable: true
+            options:
+                comment: 店内/商城
         remark:
             type: text
             nullable: true

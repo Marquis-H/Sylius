@@ -64,6 +64,16 @@ class MemberCategory implements ResourceInterface
     private $updatedAt;
 
     /**
+     * @var array
+     */
+    private $gradeType;
+
+    /**
+     * @var string
+     */
+    private $invitePoint;
+
+    /**
      * @return string
      */
     function __toString()
@@ -213,5 +223,53 @@ class MemberCategory implements ResourceInterface
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+
+    /**
+     * Set gradeType
+     *
+     * @param array $gradeType
+     *
+     * @return MemberCategory
+     */
+    public function setGradeType($gradeType)
+    {
+        $this->gradeType = $gradeType;
+
+        return $this;
+    }
+
+    /**
+     * Get gradeType
+     *
+     * @return array
+     */
+    public function getGradeType()
+    {
+        return $this->gradeType;
+    }
+
+    /**
+     * Set invitePoint
+     *
+     * @param string $invitePoint
+     *
+     * @return MemberCategory
+     */
+    public function setInvitePoint($invitePoint)
+    {
+        $this->invitePoint = $invitePoint;
+
+        return $this;
+    }
+
+    /**
+     * Get invitePoint
+     *
+     * @return string
+     */
+    public function getInvitePoint()
+    {
+        return $this->invitePoint;
     }
 }
